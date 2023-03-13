@@ -337,9 +337,9 @@ where T : Mediator
         /// </summary>
         /// <typeparam name="T">数据类型</typeparam>
         /// <returns>绑定的数据量，若不存在则返回-1</returns>
-        public static int GetBindCount<T>()
+        public static int BindCount<T>()
         {
-            return GetBindCount<T>(string.Empty);
+            return BindCount<T>(string.Empty);
         }
         /// <summary>
         /// 获取制定绑定类型，被绑定函数的数量；
@@ -347,7 +347,7 @@ where T : Mediator
         /// <typeparam name="T">数据类型</typeparam>
         /// <param name="eventName">事件名</param>
         /// <returns>绑定的数据量，若不存在则返回-1</returns>
-        public static int GetBindCount<T>(string eventName)
+        public static int BindCount<T>(string eventName)
         {
             return notification.GetBindCount(typeof(T), eventName);
         }

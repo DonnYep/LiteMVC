@@ -9,7 +9,7 @@ namespace LiteMVC
                 throw new ArgumentNullException($"action is empty!");
             MVC.Bind(action);
         }
-        public static void Bind<T>(this IObservable @this, string eventName,Action<T> action)
+        public static void Bind<T>(this IObservable @this, string eventName, Action<T> action)
         {
             if (action == null)
                 throw new ArgumentNullException($"action is empty!");
@@ -25,11 +25,15 @@ namespace LiteMVC
         {
             if (action == null)
                 throw new ArgumentNullException($"action is empty!");
-            MVC.Unbind(eventName,action);
+            MVC.Unbind(eventName, action);
         }
         public static bool HasBind<T>(this IObservable @this)
         {
             return MVC.HasBind<T>();
+        }
+        public static bool HasBind<T>(this IObservable @this, string eventName)
+        {
+            return MVC.HasBind<T>(eventName);
         }
         public static void Dispatch<T>(this IObservable @this, T data)
         {
@@ -38,6 +42,14 @@ namespace LiteMVC
         public static void Dispatch<T>(this IObservable @this, string eventName, T data)
         {
             MVC.Dispatch(eventName, data);
+        }
+        public static int BindCount<T>(this IObservable @this)
+        {
+            return MVC.BindCount<T>();
+        }
+        public static int BindCount<T>(this IObservable @this, string eventName)
+        {
+            return MVC.BindCount<T>(eventName);
         }
     }
 }
