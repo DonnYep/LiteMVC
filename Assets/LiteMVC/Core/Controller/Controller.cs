@@ -20,7 +20,7 @@ namespace LiteMVC.Core
         {
             var dataType = typeof(T);
             var baseCmdType = typeof(Command<>).MakeGenericType(dataType);
-            if (!cmdType.IsAssignableFrom(baseCmdType))
+            if (!baseCmdType.IsAssignableFrom(cmdType))
                 throw new Exception($"{cmdType} is not inherit form Command<T>");
             lock (locker)
             {
@@ -78,7 +78,7 @@ namespace LiteMVC.Core
         public bool HasCommandBind(Type dataType, string eventName, Type cmdType)
         {
             var baseCmdType = typeof(Command<>).MakeGenericType(dataType);
-            if (!cmdType.IsAssignableFrom(baseCmdType))
+            if (!baseCmdType.IsAssignableFrom(cmdType))
                 throw new Exception($"{cmdType} is not inherit form Command<>");
             lock (locker)
             {
