@@ -24,10 +24,10 @@ namespace LiteMVC.Core
         }
         public void Execute(object data)
         {
-            var length = bindActions.Count;
-            for (int i = 0; i < length; i++)
+            var arr = bindActions.ToArray();
+            foreach (var act in arr)
             {
-             bindActions[i]?.Invoke((T)data);
+                act?.Invoke((T)data);
             }
         }
         public void Clear()
