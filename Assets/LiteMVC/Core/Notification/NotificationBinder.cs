@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace LiteMVC.Core
 {
-    internal class NotificationBinder<T> : INotificationBinder
+    internal class NotificationBinder<T> : IBinder
     {
         Type valueType = typeof(T);
         List<Action<T>> bindActions;
@@ -25,9 +25,10 @@ namespace LiteMVC.Core
         public void Execute(object data)
         {
             var arr = bindActions.ToArray();
-            foreach (var act in arr)
+            var length = arr.Length;
+            for (int i = 0; i < length; i++)
             {
-                act?.Invoke((T)data);
+                arr[i]?.Invoke((T)data);
             }
         }
         public void Clear()
