@@ -85,7 +85,13 @@ namespace LiteMVC
         {
             return MVC.HasBind<KValue>(eventName);
         }
+        /// <summary>
+        /// 注册回调
+        /// </summary>
         public virtual void OnRegister() { }
+        /// <summary>
+        /// 注销回调
+        /// </summary>
         public virtual void OnDeregister() { }
         protected bool PeekMediator<T>(out T mediator)
     where T : Mediator
