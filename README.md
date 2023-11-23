@@ -1,12 +1,12 @@
 ## LiteMVC
 
-- `LiteMVC`是一款轻量级的数据绑定MVC架构，适用于轻量级项目开发。
+- `LiteMVC`是一款轻量级的MVC架构，适用于轻体量项目开发。
 
 - 相较于经典的eventName作为key的监听方式，`LiteMVC`采用了数据类型与eventName组合key进行事件监听。
   
 - 绑定监听可仅绑定数据类型，亦可同时绑定数据类型与eventName。当数据类型与eventName并存时，则此组合就作为key存在。
 
-- `View`层的代理为`Mediator`，与Unity层进行交互。
+- `View`层的代理为`Mediator`，与Unity显示层进行交互。
 
 - `Controller`层的代理为`Command`，负责无状态的业务逻辑处理。
 
